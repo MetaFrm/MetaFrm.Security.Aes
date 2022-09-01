@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>MetaFrm</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>MetaFrm.Security.Aes</AssemblyName>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>MetaFrm.Security.Aes.net6.0</PackageId>
+    <Version>6.0.0</Version>
+    <Authors>dsun</Authors>
+    <Company>MetaFrm</Company>
+    <Copyright>Copyright 2022. DSUN all rights reserved.</Copyright>
+    <PackageTags>meta;framework;dotnet;</PackageTags>
+    <RepositoryUrl>https://github.com/dsuny/MetaFrm.Security.Aes</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/dsuny/MetaFrm.Security.Aes</PackageProjectUrl>
+	
+	<SourceRevisionId>build$([System.DateTime]::UtcNow.ToString("yyyy-MM-ddTHH:mm:ss:fffZ"))</SourceRevisionId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\src\Aes.cs" Link="Aes.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MetaFrm.Core.net6.0" Version="6.0.0.4" />
+  </ItemGroup>
+
+</Project>
