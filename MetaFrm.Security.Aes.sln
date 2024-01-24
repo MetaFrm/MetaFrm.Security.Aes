@@ -16,6 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\build_6.0.yml = .github\workflows\build_6.0.yml
 		.github\workflows\build_7.0.yml = .github\workflows\build_7.0.yml
+		.github\workflows\build_8.0.yml = .github\workflows\build_8.0.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "솔루션 항목", "솔루션 항목", "{AA88632B-0603-4385-BB98-9A2026AFEDD1}"
@@ -26,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "솔루션 항목", "솔루�
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetaFrm.Security.Aes(net7.0)", "MetaFrm.Security.Aes(net7.0)\MetaFrm.Security.Aes(net7.0).csproj", "{C1945B9F-7C6E-4AC7-8D9D-02F0BADB166F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetaFrm.Security.Aes(net8.0)", "MetaFrm.Security.Aes(net8.0)\MetaFrm.Security.Aes(net8.0).csproj", "{A253CF99-0E44-4858-B2FD-2582BAB18A43}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +44,10 @@ Global
 		{C1945B9F-7C6E-4AC7-8D9D-02F0BADB166F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1945B9F-7C6E-4AC7-8D9D-02F0BADB166F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1945B9F-7C6E-4AC7-8D9D-02F0BADB166F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A253CF99-0E44-4858-B2FD-2582BAB18A43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A253CF99-0E44-4858-B2FD-2582BAB18A43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A253CF99-0E44-4858-B2FD-2582BAB18A43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A253CF99-0E44-4858-B2FD-2582BAB18A43}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
