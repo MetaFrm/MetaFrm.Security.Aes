@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetaFrm.Security.Aes(net6.0)", "MetaFrm.Security.Aes(net6.0)\MetaFrm.Security.Aes(net6.0).csproj", "{AEA750FC-913D-4C7E-AC23-B0C66A4FD299}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B3652906-D2C3-4F3D-A58D-A15F096C6A53}"
 	ProjectSection(SolutionItems) = preProject
 		src\Aes.cs = src\Aes.cs
@@ -14,9 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{3087
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{25D659AA-3856-4EDF-83CB-B5EFA3BE8A8B}"
 	ProjectSection(SolutionItems) = preProject
-		.github\workflows\build_6.0.yml = .github\workflows\build_6.0.yml
-		.github\workflows\build_7.0.yml = .github\workflows\build_7.0.yml
 		.github\workflows\build_8.0.yml = .github\workflows\build_8.0.yml
+		.github\workflows\build_9.0.yml = .github\workflows\build_9.0.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "솔루션 항목", "솔루션 항목", "{AA88632B-0603-4385-BB98-9A2026AFEDD1}"
@@ -26,9 +23,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "솔루션 항목", "솔루�
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetaFrm.Security.Aes(net7.0)", "MetaFrm.Security.Aes(net7.0)\MetaFrm.Security.Aes(net7.0).csproj", "{C1945B9F-7C6E-4AC7-8D9D-02F0BADB166F}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetaFrm.Security.Aes(net8.0)", "MetaFrm.Security.Aes(net8.0)\MetaFrm.Security.Aes(net8.0).csproj", "{A253CF99-0E44-4858-B2FD-2582BAB18A43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetaFrm.Security.Aes(net9.0)", "MetaFrm.Security.Aes(net9.0)\MetaFrm.Security.Aes(net9.0).csproj", "{1DE26E38-BB56-4442-9A4F-2912366177CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,18 +33,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AEA750FC-913D-4C7E-AC23-B0C66A4FD299}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AEA750FC-913D-4C7E-AC23-B0C66A4FD299}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AEA750FC-913D-4C7E-AC23-B0C66A4FD299}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AEA750FC-913D-4C7E-AC23-B0C66A4FD299}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C1945B9F-7C6E-4AC7-8D9D-02F0BADB166F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C1945B9F-7C6E-4AC7-8D9D-02F0BADB166F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C1945B9F-7C6E-4AC7-8D9D-02F0BADB166F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C1945B9F-7C6E-4AC7-8D9D-02F0BADB166F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A253CF99-0E44-4858-B2FD-2582BAB18A43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A253CF99-0E44-4858-B2FD-2582BAB18A43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A253CF99-0E44-4858-B2FD-2582BAB18A43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A253CF99-0E44-4858-B2FD-2582BAB18A43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DE26E38-BB56-4442-9A4F-2912366177CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DE26E38-BB56-4442-9A4F-2912366177CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DE26E38-BB56-4442-9A4F-2912366177CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DE26E38-BB56-4442-9A4F-2912366177CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
