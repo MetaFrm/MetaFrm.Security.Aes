@@ -23,20 +23,24 @@ namespace MetaFrm.Security
 
             // Create an Aes object
             // with the specified key and IV.
-            using System.Security.Cryptography.Aes aesAlg = System.Security.Cryptography.Aes.Create();
-            aesAlg.Key = GenerateKey(key);
-            aesAlg.IV = GenerateIV(IV);
+            using (System.Security.Cryptography.Aes aesAlg = System.Security.Cryptography.Aes.Create())
+            {
+                aesAlg.Key = GenerateKey(key);
+                aesAlg.IV = GenerateIV(IV);
 
-            // Create an encryptor to perform the stream transform.
-            ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
+                // Create an encryptor to perform the stream transform.
+                ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
 
-            // Create the streams used for encryption.
-            using MemoryStream msEncrypt = new();
-            using CryptoStream csEncrypt = new(msEncrypt, encryptor, CryptoStreamMode.Write);
-            using StreamWriter swEncrypt = new(csEncrypt);
-            //Write all data to the stream.
-            swEncrypt.Write(value);
-            encrypted = msEncrypt.ToArray();
+                // Create the streams used for encryption.
+                using MemoryStream msEncrypt = new();
+                using CryptoStream csEncrypt = new(msEncrypt, encryptor, CryptoStreamMode.Write);
+                using (StreamWriter swEncrypt = new(csEncrypt))
+                {
+                    //Write all data to the stream.
+                    swEncrypt.Write(value);
+                }
+                encrypted = msEncrypt.ToArray();
+            }
 
             // Return the encrypted bytes from the memory stream.
             return encrypted;
@@ -62,20 +66,22 @@ namespace MetaFrm.Security
 
             // Create an Aes object
             // with the specified key and IV.
-            using System.Security.Cryptography.Aes aesAlg = System.Security.Cryptography.Aes.Create();
-            aesAlg.Key = GenerateKey(key);
-            aesAlg.IV = GenerateIV(IV);
+            using (System.Security.Cryptography.Aes aesAlg = System.Security.Cryptography.Aes.Create())
+            {
+                aesAlg.Key = GenerateKey(key);
+                aesAlg.IV = GenerateIV(IV);
 
-            // Create a decryptor to perform the stream transform.
-            ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
+                // Create a decryptor to perform the stream transform.
+                ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
 
-            // Create the streams used for decryption.
-            using MemoryStream msDecrypt = new(value);
-            using CryptoStream csDecrypt = new(msDecrypt, decryptor, CryptoStreamMode.Read);
-            using StreamReader srDecrypt = new(csDecrypt);
-            // Read the decrypted bytes from the decrypting stream
-            // and place them in a string.
-            return srDecrypt.ReadToEnd();
+                // Create the streams used for decryption.
+                using MemoryStream msDecrypt = new(value);
+                using CryptoStream csDecrypt = new(msDecrypt, decryptor, CryptoStreamMode.Read);
+                using StreamReader srDecrypt = new(csDecrypt);
+                // Read the decrypted bytes from the decrypting stream
+                // and place them in a string.
+                return srDecrypt.ReadToEnd();
+            }
         }
         string IDecryptor.DecryptFromBase64String(string value, string key, string IV)
         {
