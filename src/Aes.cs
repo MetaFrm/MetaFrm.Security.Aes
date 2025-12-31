@@ -85,17 +85,37 @@ namespace MetaFrm.Security
         private static byte[] GenerateKey(byte[] key)
         {
             byte[] keyNew = new byte[32];
-            int length = Math.Min(key.Length, 32);
-            Array.Copy(key, keyNew, length);
-            // 남은 부분은 0으로 패딩됨
+
+            int j = -1;
+            for (int i = 0; i < 32; i++)
+            {
+                if (32 > j && key.Length > (j + 1))
+                    j += 1;
+                else
+                    break;
+                //j = 0;
+
+                keyNew[i] = key[j];
+            }
+
             return keyNew;
         }
         private static byte[] GenerateIV(byte[] IV)
         {
             byte[] ivNew = new byte[16];
-            int length = Math.Min(IV.Length, 16);
-            Array.Copy(IV, ivNew, length);
-            // 남은 부분은 0으로 패딩됨
+
+            int j = -1;
+            for (int i = 0; i < 16; i++)
+            {
+                if (16 > j && IV.Length > (j + 1))
+                    j += 1;
+                else
+                    break;
+                //j = 0;
+
+                ivNew[i] = IV[j];
+            }
+
             return ivNew;
         }
     }
