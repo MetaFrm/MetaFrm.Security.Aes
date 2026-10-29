@@ -23,29 +23,34 @@ jobs:
     - uses: actions/checkout@v7
   
     - name: Change DLL_ID, Validate .NET version
-      shell: bash
+      shell: pwsh
       run: |
-        case "$NET_VERSION" in
-          10.0)
-            echo "DLL_ID=${{secrets.DLL_ID_10}}" >> "$GITHUB_ENV"
-            ;;
-          11.0)
-            echo "DLL_ID=${{secrets.DLL_ID_11}}" >> "$GITHUB_ENV"
-            ;;
-          *)
-            echo "Unsupported .NET version: $NET_VERSION"
+        switch ($env:NET_VERSION) {
+          '10.0' {
+            "DLL_ID=${{ secrets.DLL_ID_10 }}" |
+              Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+            break
+          }
+          '11.0' {
+            "DLL_ID=${{ secrets.DLL_ID_11 }}" |
+              Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+            break
+          }
+          default {
+            "COMPLETED_MESSAGE=Unsupported .NET version: $env:NET_VERSION" |
+              Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
             exit 1
-            ;;
-        esac
+          }
+        }
 
     - name: Change DLL_PATH, PROJECT_PATH, METAFRM_UPLOADMODULE_URL, METAFRM_UPLOADMODULE_ZIP
-      shell: bash
+      shell: pwsh
       run: |
-        echo "DLL_PATH=${{vars.NAMESPACE}}(net${{env.NET_VERSION}})/bin/Release/net${{env.NET_VERSION}}/${{vars.NAMESPACE}}.dll" >> "$GITHUB_ENV"
-        echo "PROJECT_PATH=${{ vars.NAMESPACE }}(net${{ env.NET_VERSION }})" >> "$GITHUB_ENV"
-        echo "METAFRM_UPLOADMODULE_URL=https://download.metafrm.net/github/MetaFrameworkManagementSystemUploadModule${{env.NET_VERSION}}.zip" >> "$GITHUB_ENV"
-        echo "METAFRM_UPLOADMODULE_ZIP=temp/MetaFrameworkManagementSystemUploadModule${{env.NET_VERSION}}.zip" >> "$GITHUB_ENV"
-    
+        "DLL_PATH=${{vars.NAMESPACE}}(net${{env.NET_VERSION}})/bin/Release/net${{env.NET_VERSION}}/${{vars.NAMESPACE}}.dll" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+        "PROJECT_PATH=${{ vars.NAMESPACE }}(net${{ env.NET_VERSION }})" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+        "METAFRM_UPLOADMODULE_URL=https://download.metafrm.net/github/MetaFrameworkManagementSystemUploadModule${{env.NET_VERSION}}.zip" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+        "METAFRM_UPLOADMODULE_ZIP=temp/MetaFrameworkManagementSystemUploadModule${{env.NET_VERSION}}.zip" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v6
       with:
